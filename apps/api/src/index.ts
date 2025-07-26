@@ -1,22 +1,16 @@
 import { Hono } from 'hono';
 import { serve } from '@hono/node-server';
-import { UserSchema } from '@repo/shared';
+import testRoute from './routes/test-route';
 
 const app = new Hono();
 
-const route = app.get('/', (c) => {
-  const user = UserSchema.parse({
-    id: '123',
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-  });
-  return c.json({
-    message: `Hello, ${user.name}! Your email is ${user.email}.`,
-  });
+app.route('/test', testRoute);
+
+serve({
+  fetch: app.fetch,
+  port: 3000,
+}, (info) => {
+  console.log(`Server is running on http://localhost:${info.port}`);
 });
-
-serve(app);
-
-console.log('Server is running on http://localhost:3000');
 
 export type AppType = typeof app;
