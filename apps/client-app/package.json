@@ -22,5 +22,8 @@
     "vite": "^5.1.6",
     "@vitejs/plugin-react-swc": "^3.6.0"
   },
-  "packageManager": "pnpm@8.6.10"
+  "packageManager": "pnpm@8.6.10",
+  "engines": {
+    "node": ">=22"
+  }
 }

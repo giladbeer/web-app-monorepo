@@ -17,4 +17,6 @@ const route = app.get('/', (c) => {
 
 serve(app);
 
+console.log('Server is running on http://localhost:3000');
+
 export type AppType = typeof app;

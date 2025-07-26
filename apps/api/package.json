@@ -6,19 +6,23 @@
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js",
-    "dev": "npm run build -- --watch",
+    "dev": "tsx watch src/index.ts",
     "start": "node dist/index.js",
     "lint": "biome lint ."
   },
   "dependencies": {
     "@hono/node-server": "^1.8.2",
-    "hono": "^4.1.0",
-    "@repo/shared": "workspace:*"
+    "@repo/shared": "workspace:*",
+    "hono": "^4.1.0"
   },
   "devDependencies": {
+    "@types/node": "^20.11.30",
     "esbuild": "^0.20.2",
-    "typescript": "^5.3.3",
-    "@types/node": "^20.11.30"
+    "tsx": "^4.20.3",
+    "typescript": "^5.3.3"
   },
-  "packageManager": "pnpm@8.6.10"
+  "packageManager": "pnpm@8.6.10",
+  "engines": {
+    "node": ">=22"
+  }
 }
